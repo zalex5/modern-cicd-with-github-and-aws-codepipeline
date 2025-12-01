@@ -32,7 +32,7 @@ Resources:
       Tags:
         - Key: "Project"
           Value: !Sub "HotelApp-${Environment}"
-            
+
   # Sample Alarm - we will use this later to prove AWS CodePipeline Condition Gates
   DynamoDBReadCapacityAlarm:
     Type: "AWS::CloudWatch::Alarm"
@@ -233,7 +233,7 @@ Resources:
             - Name: DYNAMODB_TABLE_NAME
               Value: !Ref RoomsTable
             - Name: HOTEL_NAME
-              Value: !Ref HotelName
+              Value: !Sub ${HotelName}-${Environment}
             - Name: DYNAMODB_ENDPOINT
               Value: "https://dynamodb.us-east-1.amazonaws.com"
           LogConfiguration:
